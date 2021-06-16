@@ -5,17 +5,20 @@ import { NativeScriptModule } from '@nativescript/angular'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { HomeModule } from './pages/home/home.module';
-import { ItemsComponent } from './item/items.component'
-import { ItemDetailComponent } from './item/item-detail.component'
+import { LocationModule } from './pages/location/location.module';
+import { PostsModule } from './pages/posts/posts.module';
 
 @NgModule({
   bootstrap: [AppComponent],
-  imports: [NativeScriptModule, AppRoutingModule,  HomeModule],
+  imports: [
+    NativeScriptModule,
+    AppRoutingModule,
+    HomeModule,
+    PostsModule,
+    LocationModule ],
   declarations: [
-    AppComponent,
-  
-    ItemsComponent,
-    ItemDetailComponent],
+    AppComponent  
+   ],
   providers: [],
   schemas: [NO_ERRORS_SCHEMA],
 })

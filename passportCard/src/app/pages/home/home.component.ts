@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,14 +11,14 @@ export class HomeComponent  {
 
 
 
-constructor( ) { }
+constructor( private router: Router) { }
 
 posts(){
-  alert('posts');
+  this.router.navigate(['/posts']);
 }
 
 location(){
-  alert('location');
+  this.router.navigate(['/location']);
 }
 
 

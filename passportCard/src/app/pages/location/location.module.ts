@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core'; 
-import { LocationComponent } from './location.component';
+import { LocationComponent } from './components/location/location.component';
 
 import { LocationRoutingModule } from './location-routing.module';
 

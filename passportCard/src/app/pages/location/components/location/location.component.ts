@@ -21,8 +21,7 @@ export class LocationComponent implements OnInit {
       this.geolocation.enableGps();
       this.getLoation();
     }
-  }
-  
+  } 
   
    getLoation(){    
      this.geolocation.getLocation()

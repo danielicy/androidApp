@@ -11,8 +11,7 @@ import { PostsComponent } from './posts.component';
   ],
   imports: [
     PostsRoutingModule,
-    NativeScriptCommonModule
-    
+    NativeScriptCommonModule    
   ],
   exports:[
     PostsComponent

@@ -14,11 +14,12 @@ registerElement('MapView', () => MapView);
 })
 export class MapComponent  {
 
-  @Input() currentLocation:Location;
+ @Input() currentLocation!:Location;
 
- 
-latitude =  32.290806945275186; 
-longitude =  34.86678775498538; 
+ latitude =  32.290806945275186; 
+longitude =  34.86678775498538;
+/*latitude =  this.currentLocation.lat | 0;
+longitude =  this.currentLocation.lon | 0;*/
 zoom = 10;
 minZoom = 0;
 maxZoom = 22;
@@ -27,19 +28,14 @@ tilt = 0;
 padding = [40, 40, 40, 40];
 mapView: MapView;
 
-lastCamera: String;
 
 constructor() {
 }
 
 //Map events
-onMapReady(event) {
-    console.log('Map Ready');
+onMapReady(event) { 
 
-    this.mapView = event.object;
-
-    console.log("Setting a marker...");
-
+    this.mapView = event.object;  
     var marker = new Marker();
     marker.position = Position.positionFromLatLng(this.currentLocation.lat,this.currentLocation.lon);
     marker.title = "You are here!";
@@ -47,8 +43,6 @@ onMapReady(event) {
     marker.userData = {index: 1};
     this.mapView.addMarker(marker);
     
-     
-
 }
 
 

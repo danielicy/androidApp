@@ -1,5 +1,6 @@
 
 import { NgModule } from '@angular/core'; 
+import { NativeScriptCommonModule } from "@nativescript/angular";
 
 import { PostsRoutingModule } from './posts-routing.module';
 import { PostsComponent } from './posts.component';
@@ -9,7 +10,9 @@ import { PostsComponent } from './posts.component';
     PostsComponent
   ],
   imports: [
-    PostsRoutingModule    
+    PostsRoutingModule,
+    NativeScriptCommonModule
+    
   ],
   exports:[
     PostsComponent

@@ -1,43 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Post } from './post';
+import { PostsService } from './posts.service';
 
+import { Item } from '../../item/item';
+import { ItemService } from '../../item/item.service'
 
 @Component({
-  selector: 'posts',
+  selector: 'ns-posts',
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.css']
 })
-export class PostsComponent  {
+export class PostsComponent implements OnInit {
+posts: Array<Post>;
 
+items: Array<Item>
 
+constructor(private postsService: PostsService,
+    private itemService: ItemService) {}
 
-constructor( ) { }
-
-
-minDate: Date = new Date(1975, 0, 29);
-maxDate: Date = new Date(2045, 4, 12);
-
-onDatePickerLoaded(args) {
-    // const datePicker = args.object as DatePicker;
+ngOnInit(): void {
+    this.posts = this.postsService.getPosts();
+  this.items = this.itemService.getItems()
+  
 }
-
-onDateChanged(args) {
-    console.log("Date New value: " + args.value);
-    console.log("Date value: " + args.oldValue);
-}
-
-onDayChanged(args) {
-    console.log("Day New value: " + args.value);
-    console.log("Day Old value: " + args.oldValue);
-}
-
-onMonthChanged(args) {
-    console.log("Month New value: " + args.value);
-    console.log("Month Old value: " + args.oldValue);
-}
-
-onYearChanged(args) {
-    console.log("Year New value: " + args.value);
-    console.log("Year Old value: " + args.oldValue);
-}
-
+ 
 }

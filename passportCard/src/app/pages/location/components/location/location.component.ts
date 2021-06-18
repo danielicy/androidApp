@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { android } from '@nativescript/core/application';
 import { GeolocationService } from '../../services/geolocation.service';
+import { Location } from './location';
 const permissions = require( "nativescript-permissions" );
 
 @Component({
@@ -8,30 +9,25 @@ const permissions = require( "nativescript-permissions" );
   templateUrl: './location.component.html',
   styleUrls: ['./location.component.css']
 })
-export class LocationComponent  {
+export class LocationComponent implements OnInit {
+  currentLocation:Location;
   constructor( private geolocation:GeolocationService) {
   }
+
+  ngOnInit(): void {
+    if(this.geolocation.isGpsEnabled()){
+      this.getLoation();
+    }else{
+      this.geolocation.enableGps();
+      this.getLoation();
+    }
+  }
   
-   getLoation(){
-   // console.log("getting location:");
-   
+  
+   getLoation(){    
      this.geolocation.getLocation()
     .then(location => {
-      console.log(location.latitude);
-      console.log(location.longitude);
-    });
-
-   
-    //console.log(location);
-    //console.log("got location:");
+      this.currentLocation ={lat:location.latitude,lon:location.longitude};
+    });  
   }
-
-  async enableGps(){
-    let gps =await this.geolocation.enableGps();
-   console.log(gps);
-
-  }
-
- 
-
 }

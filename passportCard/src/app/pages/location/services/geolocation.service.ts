@@ -7,13 +7,8 @@ const gps = new GPS();
 @Injectable({
   providedIn: 'root'
 })
-export class GeolocationService {
-     public message: string;
-    public gpsPoints: ObservableArray<any>;
-    private watchId: number;
-    private uiApplication: any;
+export class GeolocationService {    
     error:any;
-
  
     getLocation() {
         if (gps.isEnabled()) {
@@ -27,53 +22,26 @@ export class GeolocationService {
 
     enableGps(){
         this.enableLocation()
-        .then(() => {
-            console.log('enableLocation done');
-            gps.watchLocation(this.locationReceived, this.error, {
-                provider:'gps',
-                minimumUpdateTime: 1000
-            }).then(watchId => (this.watchId = watchId));
+        .then(res => {
+            
+            return res;          
         })
         .catch(this.error);
     }
 
    private  enableLocation() {
-        if (!gps.isEnabled()) {
-            console.log('Location not enabled, requesting.');
+        if (!gps.isEnabled()) {            
             return gps
                 .authorize(true)
                 .then(() => gps.enable())
-                .then(() =>{gps.isEnabled(),this.getLocation()} );
+                .then(() =>{gps.isEnabled()} );
         } else {
             return Promise.resolve(true);
         }
     }
 
-    locationReceived = (position: any) => {
-        console.log('GPS Update Received');
-        // {
-        //   "latitude": 33.52077361638753,
-        //   "longitude": -111.89930240833577,
-        //   "altitude": 384.0000915527344,
-        //   "horizontalAccuracy": 65,
-        //   "verticalAccuracy": 10,
-        //   "speed": -1,
-        //   "direction": -1,
-        //   "timestamp": "2016-10-04T00:22:59.316Z",
-        //   "ios": {}
-        // }
-
-        console.log(JSON.stringify(position));
-        console.log(JSON.stringify(position.latitude));
-        console.log(JSON.stringify(position.longitude));
-
-        const gpsTime: Date = new Date(position.timestamp);
-        const logTime: Date = new Date();
-        const difference: number = (logTime.getTime() - gpsTime.getTime()) / 1000;
-        this.message = `last location:${difference},${position.latitude},${position.longitude}`;
-        this.gpsPoints.unshift({ name: gpsTime });
-    };
-
-
-
+    isGpsEnabled()
+    {
+        return gps.isEnabled();
+    }
 }

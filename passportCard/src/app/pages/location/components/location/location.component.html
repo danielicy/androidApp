@@ -1,7 +1,5 @@
-<StackLayout>
-    <Button text="Get Location" (tap)="getLoation()"></Button>
-    <Button text="Enable GPS" (tap)="enableGps()"></Button>
+<StackLayout>   
 
-    <map ></map>
+    <map [currentLocation]="currentLocation"></map>
 
 </StackLayout>

@@ -1,16 +1,14 @@
-<ActionBar>
-  <Button (tap)="back()" >
-    <FormattedString>
-         
-          <Label class="fas" style="margin-top: 10px" text="&#xf013;"></Label>
-        
-        <Span class="back" text="Back" fontAttributes="Bold"></Span>            
-    </FormattedString>
-  </Button>
+<ActionBar title="Posts">
+  <Button class="back" (tap)="back()"   >
+    
+    <Label class="fas fa-arrow-left" text="<<" textWrap="true">
+      
+  </Label>
+</Button>
 </ActionBar>
 
 <StackLayout>
-    <ListView [items]="posts">
+    <ListView height="100%" [items]="posts">
       <ng-template let-post="item">
         <StackLayout>
           <Button class="delete" text="X" (tap)="delete(post)" >

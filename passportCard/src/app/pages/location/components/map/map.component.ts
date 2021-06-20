@@ -32,9 +32,7 @@ mapView: MapView;
 constructor(private geolocation:GeolocationService) {
 }
 
-ngOnInit(): void {
  
-} 
 
  getLocation(){    
    this.geolocation.getLocation()

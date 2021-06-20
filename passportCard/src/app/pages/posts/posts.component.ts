@@ -13,14 +13,15 @@ import { ItemService } from '../../item/item.service'
 export class PostsComponent implements OnInit {
 posts: Array<Post>;
 
-items: Array<Item>
-
-constructor(private postsService: PostsService,
-    private itemService: ItemService) {}
+ 
+constructor(private postsService: PostsService) {}
 
 ngOnInit(): void {
-    this.posts = this.postsService.getPosts();
-  this.items = this.itemService.getItems()
+   const posts = this.postsService.getAll() .subscribe(
+    response =>{
+    this.posts = response as any[];
+    console.log(  this.posts);
+  }); 
   
 }
  

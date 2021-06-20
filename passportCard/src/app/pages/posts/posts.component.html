@@ -1,9 +1,26 @@
-<GridLayout>
+<ActionBar>
+  <Button (tap)="back()" >
+    <FormattedString>
+         
+          <Label class="fas" style="margin-top: 10px" text="&#xf013;"></Label>
+        
+        <Span class="back" text="Back" fontAttributes="Bold"></Span>            
+    </FormattedString>
+  </Button>
+</ActionBar>
+
+<StackLayout>
     <ListView [items]="posts">
       <ng-template let-post="item">
         <StackLayout>
-          <Label [text]="post.title"></Label>
+          <Button class="delete" text="X" (tap)="delete(post)" >
+            
+          </Button>
+          <Label class="title" [text]="post.title"></Label>
+          <TextView [text]="post.body" ></TextView>
         </StackLayout>
       </ng-template>
     </ListView>
-  </GridLayout>
+  </StackLayout>
+
+  

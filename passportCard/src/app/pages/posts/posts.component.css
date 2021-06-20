@@ -1,0 +1,15 @@
+.title{
+    font-weight: bold;
+}
+
+.delete{
+    width: 5%;
+    height: 5%;
+    horizontal-align: right;
+    border-radius: 100%;
+    color:white ;
+    font-weight: bold;
+    padding: 0.1em;  
+    background: rgb(34,34,34);
+    background: linear-gradient(90deg, rgba(34,34,34,1) 0%, rgba(145,145,145,1) 46%, rgba(0,0,0,1) 100%); 
+}

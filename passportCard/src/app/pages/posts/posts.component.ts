@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from './post';
-import { PostsService } from './posts.service';
-
-import { Item } from '../../item/item';
-import { ItemService } from '../../item/item.service'
-
+import { PostsService } from './posts.service'; 
+ 
 @Component({
   selector: 'ns-posts',
   templateUrl: './posts.component.html',
@@ -19,10 +16,17 @@ constructor(private postsService: PostsService) {}
 ngOnInit(): void {
    const posts = this.postsService.getAll() .subscribe(
     response =>{
-    this.posts = response as any[];
-    console.log(  this.posts);
+    this.posts = response as Post[];   
   }); 
   
 }
- 
+
+delete(post){
+    console.log(post.id);
+  }
+
+  back(){
+
+  }
+
 }

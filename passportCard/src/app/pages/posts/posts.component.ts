@@ -32,7 +32,7 @@ ngOnInit(): void {
           message: "Are you sure you want to be a Unicorn?",
           okButtonText: "Yes",
           cancelButtonText: "No",
-          //neutralButtonText: "Cancel"
+         
       };
 
       Dialogs.confirm(options).then((result: boolean) => {           

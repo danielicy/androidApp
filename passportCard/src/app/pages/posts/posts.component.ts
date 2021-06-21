@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Dialogs } from "@nativescript/core";
 import { Location } from "@angular/common";
 import { Post } from './post';
 import { PostsService } from './posts.service'; 
  
+
+
 @Component({
   selector: 'ns-posts',
   templateUrl: './posts.component.html',
@@ -24,8 +27,21 @@ ngOnInit(): void {
 }
 
   delete(post){
+        let options = {
+          title: "Delete ",
+          message: "Are you sure you want to be a Unicorn?",
+          okButtonText: "Yes",
+          cancelButtonText: "No",
+          //neutralButtonText: "Cancel"
+      };
+
+      Dialogs.confirm(options).then((result: boolean) => {           
+          if(result === true)
+          this.postsService.delete(post.id);
+      });
+  
     
-    this.postsService.delete(post.id);
+   
   }
 
   back(){

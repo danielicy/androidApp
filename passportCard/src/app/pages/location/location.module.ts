@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core'; 
+
+import { NativeScriptCommonModule } from "@nativescript/angular";
 import { LocationComponent } from './components/location/location.component';
 import { MapComponent } from './components/map/map.component'
 import { LocationRoutingModule } from './location-routing.module';
@@ -9,7 +11,8 @@ import { LocationRoutingModule } from './location-routing.module';
     MapComponent    
   ],
   imports: [
-    LocationRoutingModule
+    LocationRoutingModule,
+    NativeScriptCommonModule    
   ],
   exports:[
     LocationComponent

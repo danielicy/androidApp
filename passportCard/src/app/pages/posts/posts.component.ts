@@ -37,7 +37,13 @@ ngOnInit(): void {
 
       Dialogs.confirm(options).then((result: boolean) => {           
           if(result === true)
+
           this.postsService.delete(post.id);
+          var index = this.posts.map(x => {
+            return x.id;
+          }).indexOf(post.id);
+          
+          this.posts.splice(index, 1);
       });
   
     

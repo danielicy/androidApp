@@ -1,8 +1,10 @@
 <ActionBar title="Posts">
-  <Button   (tap)="back()"  text="<" class="back" >
-     
- 
-</Button>
+  <StackLayout  horizontalAlignment=left>
+   
+    <Button   (tap)="back()"  text="<" class="back" > 
+  </Button>
+  </StackLayout>
+
 </ActionBar>
 <StackLayout>
     <ListView height="100%" [items]="posts">

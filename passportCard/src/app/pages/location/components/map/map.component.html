@@ -1,13 +1,11 @@
-<StackLayout height="100%" width="100%">
-    <ContentView height="100%" width="100%">
-            <MapView #mapView
-             [latitude]="latitude"
-              [longitude]="longitude"
-             [zoom]="zoom"  [bearing]="bearing"
-             [tilt]="tilt" i-padding="50,50,50,50"
-              [padding]="padding"
-              (mapReady)="onMapReady($event)"  >
-            </MapView>
-      </ContentView>
-</StackLayout>
+<MapView #mapView
+      [latitude]="latitude"
+      [longitude]="longitude"
+      [zoom]="zoom"  [bearing]="bearing"
+      [tilt]="tilt" i-padding="50,50,50,50"
+      [padding]="padding"
+      (mapReady)="onMapReady($event)"  >
+</MapView>
+
+
     

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-const permissions = require( "nativescript-permissions" );
+import { Location } from "@angular/common";  
 
 @Component({
   selector: 'location',
@@ -9,7 +9,10 @@ const permissions = require( "nativescript-permissions" );
 })
 export class LocationComponent   {
    
-  constructor( ) {
+  constructor(private location: Location ) {
+  }
+  back(){
+    this.location.back();
   }
 
   

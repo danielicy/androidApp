@@ -1,6 +1,6 @@
 // Angular Modules
-import { Injectable } from '@angular/core'; 
-import { ObservableArray } from '@nativescript/core/data/observable-array';
+import { Injectable } from '@angular/core';
+
 import { GPS } from '@nativescript-community/gps';
 const gps = new GPS();
 
@@ -21,12 +21,7 @@ export class GeolocationService {
     }
 
     enableGps(){
-        this.enableLocation()
-        .then(res => {
-            
-            return res;          
-        })
-        .catch(this.error);
+        return  this.enableLocation();       
     }
 
    private  enableLocation() {

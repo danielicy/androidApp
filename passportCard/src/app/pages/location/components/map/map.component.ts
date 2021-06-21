@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 import { registerElement } from 'nativescript-angular';
 import { MapView, Marker, Position } from 'nativescript-google-maps-sdk'; 
 import { GeolocationService } from '../../services/geolocation.service';
-import { Location } from '../location/location';
+
 registerElement('MapView', () => MapView);
 
 
@@ -48,8 +48,15 @@ onMapReady(event) {
     if(this.geolocation.isGpsEnabled()){
       this.getLocation();
     }else{
-      this.geolocation.enableGps();
-      this.getLocation();
+      this.geolocation.enableGps()
+      .then(() => {
+            
+        this.getLocation();         
+    })
+    .catch( error => {
+      console.log(error);
+    });
+      
     }
 }
 
